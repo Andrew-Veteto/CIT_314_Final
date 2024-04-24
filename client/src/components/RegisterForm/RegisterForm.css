@@ -1,0 +1,19 @@
+.Form-Container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.Form{
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.btn{
+    border-radius: 15px;
+    background-color:aqua;
+}
+
+.btn:hover{
+    background-color: aquamarine;
+}
