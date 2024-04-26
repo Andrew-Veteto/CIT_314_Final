@@ -42,12 +42,12 @@ router.get('/reviews/:id', async (req, res) => {
 });
 
 // Gets a users information MongoDB
-router.get('/user/:id', async (req,res) => {
+router.get('/user/:id', async (req, res) => {
     const _id = req.params.id;
-    try{
+    try {
         const user = await User.aggregate([
-            { $match: { '_id': new ObjectId(_id) }},
-            { $project: {"_id" : 0, "username": 1}}
+            { $match: { '_id': new ObjectId(_id) } },
+            { $project: { "_id": 0, "username": 1 } }
         ]);
         res.json(user);
     } catch (error) {
@@ -56,6 +56,33 @@ router.get('/user/:id', async (req,res) => {
     }
 });
 
+// Deletes a users review MongoDB
+router.delete('/delete/review', async (req, res) => {
+    try {
+        var { name, review_id } = req.body;
+        var _id = ObjectId.createFromHexString(review_id);
+        const query = {
+            "park_name": name,
+            "reviews._id": _id
+        };
+        const update = {
+            $pull: {
+                "reviews": { "_id": _id }
+            }
+        };
+        const result = await Review.updateOne(query, update);
+        // Check if any document was modified
+        if (result.modifiedCount === 0) {
+            return res.status(404).json({ error: 'Review not found' });
+        }
+        res.json({ success: true });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+
+
 // Edits a user review MongoDB
 router.put('/submit/review/edit', async (req, res) => {
     try {
@@ -63,12 +90,12 @@ router.put('/submit/review/edit', async (req, res) => {
         console.log(name);
         user_id = user_id.replace(/^"(.*)"$/, '$1');
         var _id = ObjectId.createFromHexString(review_id);
-        const filter = { "park_name": name, "reviews._id": _id};
+        const filter = { "park_name": name, "reviews._id": _id };
         const update = {
-            $set: {"reviews.$.review": review }
+            $set: { "reviews.$.review": review }
         };
-        // const result = await Review.updateOne(filter, update);
-        // res.json(result);
+        const result = await Review.updateOne(filter, update);
+        res.json(result);
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Server error' });

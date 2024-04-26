@@ -1,7 +1,13 @@
+import { Navigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
 
 function RegisterPage() {
+
+    if (localStorage.getItem('_id')) {
+        return <Navigate replace to='/profile'/>
+    }
+
     return (
         <div>
             <div>

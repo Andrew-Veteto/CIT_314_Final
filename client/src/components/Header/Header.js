@@ -1,16 +1,15 @@
 import { Link as RouterLink } from 'react-router-dom';
 import '../Header/Header.css';
-import useToken from '../../hooks/useToken';
 
 function Header() {
 
-    const {token, setToken} = useToken();
+    var token = localStorage.getItem('_id')
 
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-info">
                 <div className="container-fluid">
-                    <a className='navbar-brand'>Park Finder</a>
+                    <a href='/' className='navbar-brand logo'>Park Finder</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -30,13 +29,17 @@ function Header() {
                                 )}
                             </li>
                             <li className='nav-item'>
-                                <RouterLink to='/register' className='Header-link'>Register</RouterLink>
+                                {token ? (
+                                    <p></p>
+                                ) : (
+                                    <RouterLink to='/register' className='Header-link'>Register</RouterLink>
+                                )}
                             </li>
                         </ul>
                     </div>
                 </div>
-            </nav>
-        </div>
+            </nav >
+        </div >
     );
 }
 

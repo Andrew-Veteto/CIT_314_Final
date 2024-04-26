@@ -5,17 +5,9 @@ function UserReview({ park, text, review_id }) {
 
     const [showModal, setModal] = useState(false);
 
-    // function showReviewModal() {
-    //     document.getElementById("reviewModal").style.display = "block";
-    //     document.getElementById('reviewTextArea').value = text;
-    //     setCurrentPark(park);
-    //     setCurrentReviewId(review_id);
-    //     console.log(currentPark);
-    // }
-
     function closeReviewModal() {
         document.getElementById('reviewTextArea').value = '';
-        // document.getElementById("reviewModal").style.display = "none";
+        setModal(false);
     }
 
     function submitReview() {
@@ -47,7 +39,7 @@ function UserReview({ park, text, review_id }) {
             .then(data => {
                 console.log(data);
                 // Handle success response here
-                // window.location.reload();
+                window.location.reload();
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -57,20 +49,58 @@ function UserReview({ park, text, review_id }) {
         closeReviewModal();
     }
 
+    function deleteReview() {
+
+        var requestBody = {
+            name: park,
+            review_id: review_id
+        }
+
+        fetch('http://localhost:8080/users/delete/review', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(requestBody)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                window.location.reload();
+            })
+            .catch(error => {
+                console.error(error);
+            })
+
+    }
+
     return (
         <div>
             <div className="box">
                 <p style={{ 'fontSize': 'xl' }}>Park: <span id='parkName'>{park}</span> </p>
                 <p>{text}</p>
-                <button onClick={() => setModal(true)}>Edit</button>
+                <div className='review-btns'>
+                    <button onClick={() => setModal(true)}>Edit</button>
+                    <button onClick={() => deleteReview()}>Delete</button>
+                </div>
             </div>
-            {showModal && <div id="reviewModal" className="modal">
-                <div className="modal-content">
-                    <span className="close" onClick={() => setModal(false)}>&times;</span>
-                    <h2>Edit your Review</h2>
-                    <textarea id="reviewTextArea" rows="4" cols="50"></textarea>
-                    <br />
-                    <button onClick={() => submitReview()}>Submit</button>
+            {showModal && <div id="reviewModal" className="reviewModal">
+                <div className="reviewModal-content">
+                    <div className='reviewModal-header'>
+                        <span className="close" onClick={() => setModal(false)}>&times;</span>
+                        <h2>Edit your Review</h2>
+                        <span className="close invisible">&times;</span>
+                    </div>
+                    <div className='reviewModal-body'>
+                        <textarea id="reviewTextArea" rows="4" cols="50"></textarea>
+                        <br />
+                    </div>
+                    <button onClick={() => submitReview()} className='reviewModal-submit'>Submit</button>
                 </div>
             </div>}
         </div>
