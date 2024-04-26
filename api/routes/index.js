@@ -78,7 +78,8 @@ router.get('/reviews/:name', async function (req, res) {
         $project: {
           _id: 0,
           review: "$reviews.review",
-          "username": { $arrayElemAt: ["$user.username", 0] }
+          "username": { $arrayElemAt: ["$user.username", 0] },
+          "review_id": "$reviews._id"
         }
       } // Project only the review field
     ]).exec();

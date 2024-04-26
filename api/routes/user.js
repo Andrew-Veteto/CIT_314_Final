@@ -12,7 +12,7 @@ const Review = mongoose.model('review');
 
 const ObjectId = mongoose.Types.ObjectId;
 
-// Gets all reviews based on user
+// Gets all reviews based on user MongoDB
 router.get('/reviews/:id', async (req, res) => {
     const _id = req.params.id;
     try {
@@ -41,6 +41,39 @@ router.get('/reviews/:id', async (req, res) => {
     }
 });
 
+// Gets a users information MongoDB
+router.get('/user/:id', async (req,res) => {
+    const _id = req.params.id;
+    try{
+        const user = await User.aggregate([
+            { $match: { '_id': new ObjectId(_id) }},
+            { $project: {"_id" : 0, "username": 1}}
+        ]);
+        res.json(user);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
+
+// Edits a user review MongoDB
+router.put('/submit/review/edit', async (req, res) => {
+    try {
+        var { review, name, user_id, review_id } = req.body;
+        console.log(name);
+        user_id = user_id.replace(/^"(.*)"$/, '$1');
+        var _id = ObjectId.createFromHexString(review_id);
+        const filter = { "park_name": name, "reviews._id": _id};
+        const update = {
+            $set: {"reviews.$.review": review }
+        };
+        // const result = await Review.updateOne(filter, update);
+        // res.json(result);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Server error' });
+    }
+});
 
 // Submits a user review MongoDB
 router.post('/submit/review', async (req, res) => {
