@@ -11,9 +11,9 @@
 
 .btn{
     border-radius: 15px;
-    background-color:aqua;
+    background-color:steelblue;
 }
 
 .btn:hover{
-    background-color: aquamarine;
+    background-color: thistle;
 }

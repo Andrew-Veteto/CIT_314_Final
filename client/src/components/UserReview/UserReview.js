@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../UserReview/UserReview.css'
+import './UserReview.css'
 
 function UserReview({ park, text, review_id }) {
 

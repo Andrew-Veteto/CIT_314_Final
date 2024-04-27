@@ -30,6 +30,17 @@ router.get('/', async function (req, res) {
   res.send('Hello, World!');
 });
 
+// Gets all parks
+router.get('/parks/all', async function (req, res) {
+  connection.query('SELECT Park_Name, Address, Park_URL FROM INFO', (err, results, fields) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      return res.status(500).json({ error: 'Error executing query' });
+    }
+    res.json(results);
+  });
+})
+
 // Gets parks based on State Abbreviation MyQSL
 router.get('/parks/:SA', async function (req, res, next) {
   const State = req.params.SA;

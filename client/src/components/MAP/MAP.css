@@ -1,0 +1,12 @@
+.map{
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    fill:thistle;
+    stroke: black;
+    stroke-width: 1px;
+}
+
+.location:hover{
+    fill:cornflowerblue;
+}

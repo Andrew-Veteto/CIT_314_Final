@@ -2,10 +2,9 @@ import Header from "../../components/Header/Header";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import '../ParkDetailPage/ParkDetailPage.css'
+import './ParkDetailPage.css'
 import Review from '../../components/Review/Review'
 import { nanoid } from "nanoid";
-import useToken from "../../hooks/useToken";
 
 function ParkDetailPage() {
 

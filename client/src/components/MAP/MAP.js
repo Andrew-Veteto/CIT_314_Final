@@ -1,6 +1,7 @@
 import USA from '@svg-maps/usa';
 import { SVGMap } from 'react-svg-map';
 import { useNavigate } from 'react-router-dom';
+import './MAP.css'
 
 function MAP() {
 
@@ -13,10 +14,11 @@ function MAP() {
     };
 
     return (
-        <div>
-            <div className=''>
-                <SVGMap map={USA} onLocationClick={handleClick} />
-            </div>
+        <div className='map'>
+            <SVGMap map={USA}
+            onLocationClick={handleClick}
+            locationClassName='location'
+            />
         </div>
     )
 }

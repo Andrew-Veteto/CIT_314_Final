@@ -1,0 +1,48 @@
+.card{
+    width: 20rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+}
+
+.card-body{
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+.card-body a{
+    text-decoration: none;
+    color: black;
+    font-size: large;
+}
+
+.card-title{
+    text-align: center;
+    font-size: x-large;
+}
+
+.card-subtitle{
+    font-size: larger;
+}
+
+.card-link{
+    text-decoration: none;
+}
+
+.card-btn{
+    display: flex;
+    justify-content: center;
+}
+
+.card-btn-btn{
+    background-color: steelblue;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: medium;
+    color: white;
+    height: 35px;
+}
+
+.card-btn-btn:hover{
+    background-color: thistle;
+}

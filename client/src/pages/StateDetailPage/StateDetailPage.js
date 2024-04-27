@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import { nanoid } from 'nanoid';
-import '../StateDetailPage/StateDetailPage.css'
+import './StateDetailPage.css'
 import Parks from "../../components/Parks/Parks";
 
 function StateDetailPage() {

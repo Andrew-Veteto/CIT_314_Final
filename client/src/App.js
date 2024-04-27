@@ -6,6 +6,8 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import LogoutPage from './pages/LogoutPage/LogoutPage';
 import ParkDetailPage from './pages/ParkDetailPage/ParkDetailPage';
+import AllParksPage from './pages/AllParksPage/AllParksPage';
+import './App.css'
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Main/>}/>
+          <Route path='/all' element={<AllParksPage/>}/>
           <Route path='/profile' element={<ProfilePage/>}/>
           <Route path='/login' element={<LoginPage/>}/>
           <Route path='/logout' element={<LogoutPage/>}/>

@@ -1,19 +1,27 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import './Parks.css';
 
-function Parks({ name, address, url}) {
+function Parks({ name, address, url }) {
     // Check if the URL has a protocol, if not, prepend with 'http://'
     const externalUrl = url.startsWith('http') ? url : `http://${url}`;
+    const navigate = useNavigate();
+
+    function goToPark() {
+        navigate(`/park/${name}`);
+    }
+
     return (
-        <div>
-            <Link to={`/park/${name}`} style={{'textDecoration': 'none'}}>
-                <div className="card" style={{ 'width': '24rem' }}>
-                    <div className="card-body">
-                        <h5 className="card-title">{name}</h5>
-                        <h6 className="card-subtitle mb-2 text-muted">{address}</h6>
-                        <a href={externalUrl} className="card-link" target="_blank" rel="noopener noreferrer">Their site</a>
-                    </div>
-                </div>
-            </Link>
+        <div className="card">
+            <div className="card-body">
+                <p className="card-title">{name}</p>
+                <p className="card-subtitle">Address: {address}</p>
+                <a href={externalUrl} className="card-link" target="_blank" rel="noopener noreferrer">Their site: <span style={{ "textDecoration": "underline" }}>Link</span></a>
+            </div>
+            <br />
+            <div className='card-btn'>
+                <button className='card-btn-btn' onClick={goToPark}>More Info</button>
+            </div>
+            <br />
         </div>
     )
 }

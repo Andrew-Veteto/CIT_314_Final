@@ -1,4 +1,4 @@
-import '../Review/Review.css'
+import './Review.css'
 
 function Review({ username, text}) {
     return(

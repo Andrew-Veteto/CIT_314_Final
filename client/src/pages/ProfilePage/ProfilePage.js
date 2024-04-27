@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import UserReview from '../../components/UserReview/UserReview';
 import { nanoid } from 'nanoid';
-import '../ProfilePage/ProfilePage.css'
+import './ProfilePage.css'
 
 function ProfilePage() {
 
