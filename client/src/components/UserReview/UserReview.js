@@ -3,6 +3,12 @@ import './UserReview.css'
 
 function UserReview({ park, text, review_id }) {
 
+    var token = false;
+
+    if (localStorage.getItem("_id")){
+        token = true;
+    }
+
     const [showModal, setModal] = useState(false);
 
     function closeReviewModal() {
@@ -84,10 +90,10 @@ function UserReview({ park, text, review_id }) {
             <div className="box">
                 <p style={{ 'fontSize': 'xl' }}>Park: <span id='parkName'>{park}</span> </p>
                 <p>{text}</p>
-                <div className='review-btns'>
+                {token && <div className='review-btns'>
                     <button onClick={() => setModal(true)}>Edit</button>
                     <button onClick={() => deleteReview()}>Delete</button>
-                </div>
+                </div>}
             </div>
             {showModal && <div id="reviewModal" className="reviewModal">
                 <div className="reviewModal-content">

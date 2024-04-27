@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import './ParkDetailPage.css'
-import Review from '../../components/Review/Review'
+import Review from '../../components/Review/Review';
 import { nanoid } from "nanoid";
 
 function ParkDetailPage() {
