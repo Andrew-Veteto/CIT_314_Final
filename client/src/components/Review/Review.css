@@ -1,6 +1,15 @@
-.box{
+.box {
     border: 1px solid black;
     border-radius: 10px;
     padding: 5px;
     margin-bottom: 20px;
+}
+
+.reviewHeader {
+    font-size: x-large;
+}
+
+.reviewText {
+    font-size: larger;
+    padding-left: 15px;
 }

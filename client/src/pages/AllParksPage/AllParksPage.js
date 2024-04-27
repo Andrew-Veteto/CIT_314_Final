@@ -11,7 +11,7 @@ function AllParksPage() {
 
     useEffect(() => {
         const loadParks = async () => {
-            try{
+            try {
                 const response = await axios.get('http://localhost:8080/parks/all');
                 setParks(() => [...response.data]);
             }
@@ -24,19 +24,23 @@ function AllParksPage() {
 
     const parkList = parks.map((park) => (
         <Parks
-        key={nanoid()}
-        name={park.Park_Name}
-        address={park.Address}
-        url={park.Park_URL}
+            key={nanoid()}
+            name={park.Park_Name}
+            address={park.Address}
+            url={park.Park_URL}
         />
     ))
 
-    return(
+    return (
         <div>
-            <Header/>
-            <h1>All Parks:</h1>
-            <div className='parkList'>
-                {parkList}
+            <Header />
+            <div className='container'>
+                <h1>All Parks:</h1>
+                <hr />
+                <br />
+                <div className='parkList'>
+                    {parkList}
+                </div>
             </div>
         </div>
     )

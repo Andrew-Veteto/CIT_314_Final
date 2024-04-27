@@ -45,9 +45,7 @@ function ProfilePage() {
 
     return (
         <div>
-            <div>
-                <Header />
-            </div>
+            <Header />
             <br />
             <div className="container">
                 <div>
@@ -55,14 +53,14 @@ function ProfilePage() {
                         <p>Loading...</p>
                     ) : (
                         <div>
-                            <h3>Hello {users[0].username}!</h3>
-                            <h5>Amount of reviews: {reviews.length}</h5>
+                            <h1>Hello {users[0].username}!</h1>
+                            <h2>Amount of reviews: {reviews.length}</h2>
                         </div>
                     )}
                 </div>
                 <hr />
                 <div>
-                    <h4>Your reviews: </h4>
+                    <h3>Your reviews: </h3>
                     {loading ? (
                         <p>Loading...</p>
                     ) : (

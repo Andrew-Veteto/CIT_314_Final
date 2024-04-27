@@ -41,12 +41,13 @@ function RegisterForm() {
         <div className="Form-Container">
             <form className="Form" action="post" onSubmit={handleSubmit}>
                 <div>
-                    <label>Username:</label>
+                    <label className="formLabel">Username:</label>
                     <br />
                     <input type="text" value={inputs.username} name="username" placeholder="Username" onChange={handleChange} required />
                 </div>
+                <br />
                 <div>
-                    <label>Password:</label>
+                    <label className="formLabel">Password:</label>
                     <br />
                     <input type="password" value={inputs.password} name="password" placeholder="********" onChange={handleChange} required />
                 </div>

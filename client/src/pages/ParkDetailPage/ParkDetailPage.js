@@ -11,6 +11,7 @@ function ParkDetailPage() {
     const params = useParams();
     const [park, setPark] = useState(null);
     const [reviews, setReviews] = useState([]);
+    const [showModal, setModal] = useState(false);
     const [parkLoading, setParkLoading] = useState(true);
     const [reviewsLoading, setReviewsLoading] = useState(true);
 
@@ -50,17 +51,9 @@ function ParkDetailPage() {
         />
     ));
 
-    function showReviewModal() {
-        if (!localStorage.getItem('accessToken')) {
-            alert("You must sign in first before leaving a review.");
-        }else{
-            document.getElementById("reviewModal").style.display = "block";
-        }
-    }
-
     function closeReviewModal() {
         document.getElementById('reviewTextArea').value = '';
-        document.getElementById("reviewModal").style.display = "none";
+        setModal(false);
     }
 
     function submitReview() {
@@ -112,7 +105,7 @@ function ParkDetailPage() {
                     <p>Loading...</p>
                 ) : (
                     <div>
-                        <h3>{park[0].Park_Name}</h3>
+                        <h1>{park[0].Park_Name}</h1>
                         <div className="field">
                             <label htmlFor="address">Address: </label>
                             <span>{park[0].Address}</span>
@@ -148,15 +141,17 @@ function ParkDetailPage() {
                     </div>
                 )}
             </div>
-            <hr />
+            <div className="container">
+                <hr />
+            </div>
             <div className="container">
                 {reviewsLoading ? (
                     <p>Loading reviews...</p>
                 ) : (
                     <div>
                         <div className="review_header">
-                            <h4>Reviews: </h4>
-                            <button onClick={showReviewModal}>Add a review</button>
+                            <h1>Reviews: </h1>
+                            <button className="addReviewBtn" onClick={() => setModal(true)}>Add a review</button>
                         </div>
                         <br />
                         {reviewList.length > 0 ? (
@@ -169,15 +164,15 @@ function ParkDetailPage() {
                     </div>
                 )}
             </div>
-            <div id="reviewModal" className="modal">
+            {showModal && <div id="reviewModal" className="modal">
                 <div className="modal-content">
-                    <span className="close" onClick={closeReviewModal}>&times;</span>
+                    <span className="close" onClick={() => setModal(false)}>&times;</span>
                     <h2>Write a Review</h2>
                     <textarea id="reviewTextArea" rows="4" cols="50"></textarea>
                     <br />
                     <button onClick={submitReview}>Submit</button>
                 </div>
-            </div>
+            </div>}
         </div>
     )
 }

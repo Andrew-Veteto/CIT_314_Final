@@ -6,12 +6,20 @@
 
 .Form{
     border: 1px solid black;
+    border-radius: 5px;
     padding: 20px;
 }
 
+.formLabel{
+    font-size: larger;
+}
+
 .btn{
-    border-radius: 15px;
+    border: 1px solid white;
+    border-radius: 5px;
     background-color:steelblue;
+    color: white;
+    height: 35px;
 }
 
 .btn:hover{

@@ -1,8 +1,17 @@
 .box{
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 5px;
     margin-bottom: 20px;
+}
+
+.reviewHeader{
+  font-size: x-large;
+}
+
+.reviewText{
+  font-size: larger;
+  padding-left: 15px;
 }
 
 .reviewModal {
@@ -68,4 +77,17 @@
 .review-btns{
   display: flex;
   gap: 15px;
+}
+
+.review-btn-btn{
+  background-color: steelblue;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: medium;
+  color: white;
+  height: 35px;
+}
+
+.review-btn-btn:hover{
+  background-color: thistle;
 }

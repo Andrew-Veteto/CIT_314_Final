@@ -1,11 +1,11 @@
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .field {
     margin-bottom: 10px;
+    font-size: large;
 }
 
 label {
@@ -16,10 +16,23 @@ span {
     margin-left: 10px;
 }
 
+.addReviewBtn {
+  background-color: steelblue;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  height: 35px;
+}
+
+.addReviewBtn:hover{
+  background-color: thistle;
+}
+
 .review_header{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
 }
 
 .modal {

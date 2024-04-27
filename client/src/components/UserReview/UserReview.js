@@ -88,11 +88,14 @@ function UserReview({ park, text, review_id }) {
     return (
         <div>
             <div className="box">
-                <p style={{ 'fontSize': 'xl' }}>Park: <span id='parkName'>{park}</span> </p>
-                <p>{text}</p>
+                <p className='reviewHeader'>Park: <span id='parkName'>{park}</span> </p>
+                <hr />
+                <p className='reviewText'>{text}</p>
+                <br />
+                <hr />
                 {token && <div className='review-btns'>
-                    <button onClick={() => setModal(true)}>Edit</button>
-                    <button onClick={() => deleteReview()}>Delete</button>
+                    <button className='review-btn-btn' onClick={() => setModal(true)}>Edit</button>
+                    <button className='review-btn-btn' onClick={() => deleteReview()}>Delete</button>
                 </div>}
             </div>
             {showModal && <div id="reviewModal" className="reviewModal">

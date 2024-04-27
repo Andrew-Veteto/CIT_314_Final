@@ -3,8 +3,8 @@ import './Review.css'
 function Review({ username, text}) {
     return(
         <div className="box">
-            <p style={{'fontSize': 'xl'}}>User: {username}</p>
-            <p>{text}</p>
+            <p className='reviewHeader'>User: {username}</p>
+            <p className='reviewText' >{text}</p>
         </div>
     )
 }
