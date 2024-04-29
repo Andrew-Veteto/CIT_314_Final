@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import './AllParksPage.css';
+import { useNavigate } from 'react-router-dom';
 
 function AllParksPage() {
 
@@ -31,11 +32,20 @@ function AllParksPage() {
         />
     ))
 
+    const navigate = useNavigate();
+
+    function goToAddParkPage() {
+        navigate('/add-park');
+    }
+
     return (
         <div>
             <Header />
             <div className='container'>
-                <h1>All Parks:</h1>
+                <div className='pageHeader'>
+                    <h1>All Parks:</h1>
+                    <button className='addParkBtn' onClick={goToAddParkPage}>Add Park</button>
+                </div>
                 <hr />
                 <br />
                 <div className='parkList'>

@@ -1,85 +1,103 @@
-.box{
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 5px;
-    margin-bottom: 20px;
+.box {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 20px;
 }
 
-.reviewHeader{
+.reviewHeader {
   font-size: x-large;
 }
 
-.reviewText{
+.reviewText {
   font-size: larger;
   padding-left: 15px;
 }
 
 .reviewModal {
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .reviewModal-content {
-    background-color: #fefefe;
-    /* margin: 15% auto; */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-  }
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .reviewModal-header {
-    display: flex;
-    justify-content: space-between;
-  }
+.reviewModal-content {
+  background-color: #fefefe;
+  /* margin: 15% auto; */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
 
-  .reviewModal-body {
-    width: 100%;
-    display: flex;
+.reviewModal-header {
+  display: flex;
+  justify-content: space-between;
+}
 
-  }
+.reviewModal-body {
+  width: 100%;
+  display: flex;
 
-  .reviewModal-submit {
-    width: fit-content;
-    justify-content: end;
-  }
+}
 
-  .invisible {
-    visibility: hidden;
-  }
-  
-  .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-.review-btns{
+.reviewModal-TextArea {
+  resize: none;
+  width: 100%
+}
+
+.reviewModal-btn{
+  display: flex;
+  justify-content: center;
+}
+
+.reviewModal-submit {
+  width: fit-content;
+  height: 32px;
+  background-color: steelblue;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.reviewModal-submit:hover {
+  background-color: thistle;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.review-btns {
   display: flex;
   gap: 15px;
 }
 
-.review-btn-btn{
+.review-btn-btn {
   background-color: steelblue;
   border: 1px solid white;
   border-radius: 5px;
@@ -88,6 +106,6 @@
   height: 35px;
 }
 
-.review-btn-btn:hover{
+.review-btn-btn:hover {
   background-color: thistle;
 }

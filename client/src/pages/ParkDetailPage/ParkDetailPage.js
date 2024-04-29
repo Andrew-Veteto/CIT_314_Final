@@ -1,5 +1,5 @@
 import Header from "../../components/Header/Header";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import './ParkDetailPage.css'
@@ -13,7 +13,14 @@ function ParkDetailPage() {
     const [reviews, setReviews] = useState([]);
     const [showModal, setModal] = useState(false);
     const [parkLoading, setParkLoading] = useState(true);
+    const [viewAddReview, setViewAddReview] = useState(false);
     const [reviewsLoading, setReviewsLoading] = useState(true);
+
+    useEffect(() => {
+        if (localStorage.getItem('_id')) {
+            setViewAddReview(true);
+        }
+    }, []);
 
     // Gets the park data
     useEffect(() => {
@@ -95,6 +102,12 @@ function ParkDetailPage() {
         closeReviewModal();
     }
 
+    const navigate = useNavigate();
+
+    function goToLogin() {
+        navigate('/login');
+    }
+
     return (
         <div>
             <div>
@@ -121,6 +134,10 @@ function ParkDetailPage() {
                         <div className="field">
                             <label htmlFor="address">Water Rides: </label>
                             <span>{park[0].Water_Rides}</span>
+                        </div>
+                        <div className="field">
+                            <label htmlFor="address">Arcade: </label>
+                            <span>{park[0].Arcade === 1 ? 'True' : 'False'}</span>
                         </div>
                         <div className="field">
                             <label htmlFor="address">Water Park: </label>
@@ -151,7 +168,12 @@ function ParkDetailPage() {
                     <div>
                         <div className="review_header">
                             <h1>Reviews: </h1>
-                            <button className="addReviewBtn" onClick={() => setModal(true)}>Add a review</button>
+                            {viewAddReview ? (
+                                <button className="addReviewBtn" onClick={() => setModal(true)}>Add a review</button>
+                            ) : (
+                                <button className="addReviewBtn" onClick={goToLogin}>Log in review</button>
+                            )}
+
                         </div>
                         <br />
                         {reviewList.length > 0 ? (
@@ -168,9 +190,11 @@ function ParkDetailPage() {
                 <div className="modal-content">
                     <span className="close" onClick={() => setModal(false)}>&times;</span>
                     <h2>Write a Review</h2>
-                    <textarea id="reviewTextArea" rows="4" cols="50"></textarea>
+                    <textarea className='reviewModal-TextArea' id="reviewTextArea" rows="4" cols="50"></textarea>
                     <br />
-                    <button onClick={submitReview}>Submit</button>
+                    <div className='reviewModal-btn'>
+                        <button className='reviewModal-submit' onClick={submitReview}>Submit</button>
+                    </div>
                 </div>
             </div>}
         </div>

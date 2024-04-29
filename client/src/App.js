@@ -7,6 +7,7 @@ import RegisterPage from './pages/RegisterPage/RegisterPage';
 import LogoutPage from './pages/LogoutPage/LogoutPage';
 import ParkDetailPage from './pages/ParkDetailPage/ParkDetailPage';
 import AllParksPage from './pages/AllParksPage/AllParksPage';
+import AddPark from './pages/AddPark/AddPark';
 import './App.css'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Main/>}/>
           <Route path='/all' element={<AllParksPage/>}/>
+          <Route path='/add-park' element={<AddPark/>}/>
           <Route path='/profile' element={<ProfilePage/>}/>
           <Route path='/login' element={<LoginPage/>}/>
           <Route path='/logout' element={<LogoutPage/>}/>

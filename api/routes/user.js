@@ -12,7 +12,7 @@ const Review = mongoose.model('review');
 
 const ObjectId = mongoose.Types.ObjectId;
 
-// Gets all reviews based on user MongoDB
+// Gets all reviews based on user MongoDB -- Aggregate
 router.get('/reviews/:id', async (req, res) => {
     const _id = req.params.id;
     try {
@@ -41,7 +41,7 @@ router.get('/reviews/:id', async (req, res) => {
     }
 });
 
-// Gets a users information MongoDB
+// Gets a users information MongoDB -- Aggregate
 router.get('/user/:id', async (req, res) => {
     const _id = req.params.id;
     try {

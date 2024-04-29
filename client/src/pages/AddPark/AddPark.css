@@ -1,0 +1,54 @@
+.AddParkcontainer {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.addParkForm{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+.form-label{
+    font-size: x-large;
+    font-weight: 400;
+}
+
+.form-btn{
+    display: flex;
+    justify-content: center;
+}
+
+.form-btn-btn{
+    background-color: steelblue;
+    color: white;
+    height: 36px;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: large;
+}
+
+.form-btn-btn:hover{
+    background-color: thistle;
+}
+
+.form-login-btn{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-login-btn-btn{
+    background-color: steelblue;
+    color: white;
+    height: 36px;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: large;
+}
+
+.form-login-btn-btn:hover{
+    background-color: thistle;
+}

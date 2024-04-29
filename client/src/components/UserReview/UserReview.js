@@ -5,7 +5,7 @@ function UserReview({ park, text, review_id }) {
 
     var token = false;
 
-    if (localStorage.getItem("_id")){
+    if (localStorage.getItem("_id")) {
         token = true;
     }
 
@@ -106,10 +106,13 @@ function UserReview({ park, text, review_id }) {
                         <span className="close invisible">&times;</span>
                     </div>
                     <div className='reviewModal-body'>
-                        <textarea id="reviewTextArea" rows="4" cols="50"></textarea>
+                        <textarea className='reviewModal-TextArea' id="reviewTextArea" rows="8" cols="50"></textarea>
                         <br />
                     </div>
-                    <button onClick={() => submitReview()} className='reviewModal-submit'>Submit</button>
+                    <br />
+                    <div className='reviewModal-btn'>
+                        <button onClick={() => submitReview()} className='reviewModal-submit'>Submit</button>
+                    </div>
                 </div>
             </div>}
         </div>

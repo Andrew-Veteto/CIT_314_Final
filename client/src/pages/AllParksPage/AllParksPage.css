@@ -4,6 +4,25 @@
     padding: 20px;
 }
 
+.pageHeader{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addParkBtn{
+    height: 36px;
+    background-color: steelblue;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+}
+
+.addParkBtn:hover{
+    background-color: thistle;
+}
+
 .parkList{
     display: flex;
     flex-wrap: wrap;

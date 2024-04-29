@@ -20,6 +20,9 @@ function Header() {
                     <RouterLink to='/all' className={`Header-link ${isActive('/all')}`}>Parks</RouterLink>
                 </li>
                 <li className='nav-item'>
+                    <RouterLink to='/add-park' className={`Header-link ${isActive('/add-park')}`}>Add Park</RouterLink>
+                </li>
+                <li className='nav-item'>
                     <RouterLink to='/profile' className={`Header-link ${isActive('/profile')}`}>Profile</RouterLink>
                 </li>
                 <li className='nav-item'>
